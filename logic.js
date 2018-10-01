@@ -124,6 +124,13 @@ function canvas(canvas_width) {
         else return false;
     };
 
+    this.restart = function () {
+        fill(255);
+        stroke('white');
+        text("Game Over", width / 2, height / 2);
+        text("Press R to restart", width / 2, height / 2 + 50);
+    };
+
     this.keyTyped = function () {
         if (key == 'r' || key == 'R') {
             blocks.length = 0;
