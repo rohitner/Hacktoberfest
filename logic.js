@@ -124,6 +124,14 @@ function canvas(canvas_width) {
         else return false;
     };
 
+    /*********** function to display current score ****************************/
+    this.drawScore = function () {
+        fill(255);
+        stroke('white');
+        text("Score:", 40*transformation_factor.x, 40*transformation_factor.y);
+        text(score, 160*transformation_factor.x, 40*transformation_factor.y);
+    };
+
     this.restart = function () {
         fill(255);
         stroke('white');
