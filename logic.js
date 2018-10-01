@@ -7,10 +7,10 @@ function canvas(canvas_width) {
     var font_size = 40;
     var poisson_mean = 3.5;//number of blocks falling per second
     var cursor_pos, cursor_width, cursor_height, flag = 1;
-    var previous_window = {};
+    var previous_window={};
     var transformation_factor = {
-        x: 1,
-        y: 1
+        x:1,
+        y:1
     };
 
     /*********function to shift the canvas to the centre of the browser*******/
@@ -29,7 +29,7 @@ function canvas(canvas_width) {
     };
     this.draw = function () {
         background(128);
-        textSize(font_size * transformation_factor.x);
+        textSize(font_size*transformation_factor.x);
         //cursor specifications
         cursor_width = 30 * transformation_factor.x;
         cursor_height = 30 * transformation_factor.y;
@@ -71,7 +71,7 @@ function canvas(canvas_width) {
         var time = 0;
         this.move = function () {
             time += (60 / fr);
-            this.y *= transformation_factor.y;
+            this.y*=transformation_factor.y;
             this.y += speed * time;
             if (this.y > height) {
                 score++;
@@ -112,6 +112,24 @@ function canvas(canvas_width) {
             y = height - obj_height;
         }
         return {x: x, y: y};
+    };
+
+    /**********function to check for collisions b/w cursor and blocks**********/
+
+    this.collision = function () {
+        if ((abs((cursor_pos.x + cursor_width / 2) - (blocks[block_index].x + blocks[block_index].wid / 2)) < (cursor_width + blocks[block_index].wid) / 2) &&
+            (abs((cursor_pos.y + cursor_height / 2) - (blocks[block_index].y + blocks[block_index].ht / 2)) < (cursor_height + blocks[block_index].ht) / 2)) {
+            return true;
+        }
+        else return false;
+    };
+
+    this.windowResized = function () {
+        var new_canvas_width = canvas_width * (windowWidth / previous_window.width);
+        transformation_factor.x = windowWidth / previous_window.width;
+        transformation_factor.y = windowHeight / previous_window.height;
+        this.resizeCanvas(new_canvas_width, windowHeight);
+        this.centerCanvas();
     };
 }
 canvas(700);//700 = width of tha screen play area in browser
