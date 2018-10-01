@@ -124,6 +124,15 @@ function canvas(canvas_width) {
         else return false;
     };
 
+    this.keyTyped = function () {
+        if (key == 'r' || key == 'R') {
+            blocks.length = 0;
+            score = 0;
+            loop();
+
+        }
+    };
+
     this.windowResized = function () {
         var new_canvas_width = canvas_width * (windowWidth / previous_window.width);
         transformation_factor.x = windowWidth / previous_window.width;
