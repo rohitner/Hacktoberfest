@@ -156,5 +156,5 @@ function canvas(canvas_width) {
         this.centerCanvas();
     };
 }
-canvas(700);//700 = width of tha screen play area in browser
+canvas(750);//700 = width of tha screen play area in browser
 
