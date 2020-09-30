@@ -1,4 +1,5 @@
 // can linearly increase difficulty with time
+// can linearly decrease easiness with time
 function canvas(canvas_width) {
     var blocks = []; // list containing info of falling blocks generated per new frame
     var score = 0;
