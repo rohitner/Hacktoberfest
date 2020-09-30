@@ -2,7 +2,7 @@
 #include <random>
 using namespace emscripten;
 using namespace std;
-
+/* this is poisson */
 float poisson(int mean,int frame_rate) {
 
   random_device rd;
