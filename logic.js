@@ -1,4 +1,5 @@
 // can linearly increase difficulty with time
+// can linearly decrease easiness with time
 function canvas(canvas_width) {
     var blocks = []; // list containing info of falling blocks generated per new frame
     var score = 0;
@@ -127,7 +128,7 @@ function canvas(canvas_width) {
     /*********** function to display current score ****************************/
     this.drawScore = function () {
         fill(255);
-        stroke('white');
+        stroke('blue');
         text("Score:", 40*transformation_factor.x, 40*transformation_factor.y);
         text(score, 160*transformation_factor.x, 40*transformation_factor.y);
     };
@@ -156,5 +157,5 @@ function canvas(canvas_width) {
         this.centerCanvas();
     };
 }
-canvas(700);//700 = width of tha screen play area in browser
+canvas(750);//700 = width of tha screen play area in browser
 
